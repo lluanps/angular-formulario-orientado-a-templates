@@ -36,7 +36,8 @@
         <label class="campo__etiqueta" for="telefone">Contato</label>
         <input name="telefone" id="telefone" type="tel" placeholder="(XX) XXXXX-XXXX" class="campo__escrita"  ngModel required pattern="(\(?\d{2}\)?\s?)(\d{5}\-?\d{4})" #contato="ngModel"/>
         <div *ngIf="(f.controls['telefone']?.invalid && f.controls['telefone']?.touched) || f.controls['telefone']?.dirty">
-          <app-mensagem *ngIf="contato?.errors?.['required']" mensagem="O campo de nome deve ser preenchido"></app-mensagem>
+          <app-mensagem *ngIf="contato?.errors?.['required']" mensagem="O campo de contato deve ser preenchido"></app-mensagem>
+          <app-mensagem *ngIf="contato?.errors?.['pattern']" mensagem="Não é um número de telefone válido"></app-mensagem>
         </div>
       </div>
     </div>
