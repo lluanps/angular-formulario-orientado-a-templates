@@ -15,17 +15,35 @@ export class CadastroComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  consultaCep(ev: any) {
+  //foi adicionado no metodo uma verificacao para preencher os campos de endereço automaticamente
+  consultaCep(ev: any, f: NgForm) {
     const cep = ev.target.value;
-    return this.consultCepService.getConsultaCep(cep).subscribe(resultado => console.log(resultado));
+    //verifica se o cep não esta vazio, caso n.. retorna o metodo populandoEndereco
+    if (cep != '') {
+      this.consultCepService.getConsultaCep(cep).subscribe(resultado => {
+        console.log(resultado)
+        this.populandoEndereco(resultado, f);
+      });
+    }
   }
 
-  cadastrar(form : NgForm){
+  // os nomes endereco, bairro etc, foram pegos atravez do console log q retorna o resultado, assim foi possivel preecnher o campo corretamente
+  populandoEndereco(dados: any, f: NgForm) {
+    f.form.patchValue({
+      endereco: dados.logradouro,
+      complemento: dados.complemento,
+      bairro: dados.bairro,
+      cidade: dados.localidade,
+      estado: dados.uf
+    })
+  }
+
+  cadastrar(form: NgForm) {
     if (form.valid) {
       this.router.navigate(['./sucesso']);
-    }else{
+    } else {
       alert('Formulário inválido!');
     }
-      console.log(form.controls);
+    console.log(form.controls);
   }
 }
