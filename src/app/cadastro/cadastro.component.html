@@ -19,7 +19,7 @@
     <!-- Componentizando as mensagens -->
     <div *ngIf="(nome?.invalid && nome?.touched) || nome?.dirty">
       <app-mensagem *ngIf="nome?.errors?.['required']" mensagem="O campo de nome deve ser preenchido"></app-mensagem>
-      <app-mensagem *ngIf="nome?.errors?.['minlength']" mensagem="O campo de nome deve ter no minimo 2 caracteres"></app-mensagem>
+      <app-mensagem *ngIf="nome?.errors?.['minlength']" mensagem="O campo de nome deve ter no mínimo 2 caracteres"></app-mensagem>
     </div>
 
     <div class="formulario__dupla">
@@ -46,7 +46,7 @@
       <label class="campo__etiqueta" for="email">E-mail</label>
       <input name="email" id="email" type="email" class="campo__escrita" ngModel required email #email="ngModel"/>
       <div *ngIf="(f.controls['email']?.invalid && f.controls['email']?.touched) || f.controls['email']?.dirty">
-        <app-mensagem *ngIf="email?.errors?.['required']" mensagem="O campo email dve ser preecnhido"></app-mensagem>
+        <app-mensagem *ngIf="email?.errors?.['required']" mensagem="O campo email deve ser preenchido"></app-mensagem>
       </div>  
     </div>
 
@@ -58,7 +58,7 @@
       <div *ngIf="(cep?.invalid && cep?.touched) || cep?.dirty">
         <app-mensagem *ngIf="cep?.errors?.['required']" mensagem="O cep é obrigatório"></app-mensagem>
         <app-mensagem *ngIf="cep?.errors?.['pattern']" mensagem="O campo CEP deve seguir o exemplo: 00000-000"></app-mensagem>
-        <app-mensagem *ngIf="cep?.errors?.['validadorCep']" mensagem="O cep informado não existe"></app-mensagem>
+        <app-mensagem *ngIf="cep?.errors?.['validadorCep']" mensagem="O CEP informado não existe"></app-mensagem>
       </div>
     </div>
 
@@ -67,7 +67,7 @@
       <input name="endereco" id="endereco" class="campo__escrita" ngModel required #endereco="ngModel" minlength="4"/>
       <div *ngIf="(endereco?.touched && endereco?.invalid) || endereco?.dirty">
         <app-mensagem *ngIf="endereco?.errors?.['required']" mensagem="Endereço é obrigatório"></app-mensagem>
-        <app-mensagem *ngIf="endereco?.errors?.['minlength']" mensagem="O campo de nome deve ter no minimo 4 caracteres"></app-mensagem>
+        <app-mensagem *ngIf="endereco?.errors?.['minlength']" mensagem="O campo de endereço deve ter no mínimo 4 caracteres"></app-mensagem>
       </div>
     </div>
     <div class="formulario__dupla">
@@ -89,7 +89,7 @@
       <input name="bairro" id="bairro" class="campo__escrita" ngModel required #bairro="ngModel" minlength="2"/>
       <div *ngIf="(bairro?.invalid && bairro?.touched) || bairro?.dirty">
         <app-mensagem *ngIf="bairro?.errors?.['required']" mensagem="O campo bairro é obrigatório"></app-mensagem>
-        <app-mensagem *ngIf="bairro?.errors?.['minlength']" mensagem="O campo de nome deve ter no minimo 2 caracteres"></app-mensagem>
+        <app-mensagem *ngIf="bairro?.errors?.['minlength']" mensagem="O campo de bairro deve ter no mínimo 2 caracteres"></app-mensagem>
       </div>
     </div>
     <div class="formulario__dupla">
